@@ -18,13 +18,6 @@ export default function App() {
     async function requestPermissions() {
       const result = await canStartVerification({
         requestServices: true,
-        locationPermissionRationale: {
-          message: 'We need location permission to create an accurate address',
-          title: 'Location permission requried',
-          buttonPositive: 'GRANT',
-          buttonNegative: 'DENY',
-          buttonNeutral: 'CANCEL',
-        },
       });
       setConditionsMet(result);
     }
