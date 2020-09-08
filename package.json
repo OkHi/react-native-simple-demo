@@ -10,9 +10,9 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
-    "@okhi/react-native-core": "^1.0.6",
-    "@okhi/react-native-okcollect": "^1.0.8",
-    "@okhi/react-native-okverify": "^1.0.4",
+    "@okhi/react-native-core": "^1.0.8",
+    "@okhi/react-native-okcollect": "^1.1.0",
+    "@okhi/react-native-okverify": "^1.0.6",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-webview": "^10.8.3"
