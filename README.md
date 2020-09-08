@@ -28,7 +28,7 @@ Create a `secret.json` file at the root directory of the project. With the follo
 
 Open the `OkHiAuth.js` file and make sure you're running the app in the mode that corresponds with your issued keys. Default is SANDBOX.
 
-## 5. Run the app
+## 6. Run the app
 
 `$ yarn android`
 
