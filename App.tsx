@@ -18,13 +18,7 @@ export default function App() {
   useEffect(() => {
     async function requestPermissions() {
       await requestEnableLocationServices();
-      await requestLocationPermission({
-        message: 'We need location permission to create an accurate address',
-        title: 'Location permission requried',
-        buttonPositive: 'GRANT',
-        buttonNegative: 'DENY',
-        buttonNeutral: 'CANCEL',
-      });
+      await requestLocationPermission();
     }
     requestPermissions();
   }, []);
