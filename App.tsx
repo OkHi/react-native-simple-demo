@@ -1,20 +1,39 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {View, ViewStyle, Button} from 'react-native';
 import OkHiLocationManager, {
   OkCollectSuccessResponse,
 } from '@okhi/react-native-okcollect';
-import {OkHiUser, OkHiException} from '@okhi/react-native-core';
+import {
+  OkHiUser,
+  OkHiException,
+  requestLocationPermission,
+  requestEnableLocationServices,
+} from '@okhi/react-native-core';
 import auth from './OkHiAuth';
 import secret from './secret.json';
 
 export default function App() {
+  const [launch, setLaunch] = useState(false);
+
+  useEffect(() => {
+    async function requestPermissions() {
+      await requestEnableLocationServices();
+      await requestLocationPermission({
+        message: 'We need location permission to create an accurate address',
+        title: 'Location permission requried',
+        buttonPositive: 'GRANT',
+        buttonNegative: 'DENY',
+        buttonNeutral: 'CANCEL',
+      });
+    }
+    requestPermissions();
+  }, []);
+
   const viewStyles: ViewStyle = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   };
-
-  const [launch, setLaunch] = useState(false);
 
   const handleOnSuccess = (response: OkCollectSuccessResponse) => {
     // perform any logic you'd wish with user and location objects
