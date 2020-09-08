@@ -3,28 +3,30 @@ import {View, ViewStyle, Button} from 'react-native';
 import OkHiLocationManager, {
   OkCollectSuccessResponse,
 } from '@okhi/react-native-okcollect';
+import {OkHiUser, OkHiException} from '@okhi/react-native-core';
 import {
-  OkHiUser,
-  OkHiException,
-  requestLocationPermission,
-  requestEnableLocationServices,
-} from '@okhi/react-native-core';
+  canStartVerification,
+  startVerification,
+} from '@okhi/react-native-okverify';
 import auth from './OkHiAuth';
 import secret from './secret.json';
 
 export default function App() {
   const [launch, setLaunch] = useState(false);
-
+  const [conditionsMet, setConditionsMet] = useState(false);
   useEffect(() => {
     async function requestPermissions() {
-      await requestEnableLocationServices();
-      await requestLocationPermission({
-        message: 'We need location permission to create an accurate address',
-        title: 'Location permission requried',
-        buttonPositive: 'GRANT',
-        buttonNegative: 'DENY',
-        buttonNeutral: 'CANCEL',
+      const result = await canStartVerification({
+        requestServices: true,
+        locationPermissionRationale: {
+          message: 'We need location permission to create an accurate address',
+          title: 'Location permission requried',
+          buttonPositive: 'GRANT',
+          buttonNegative: 'DENY',
+          buttonNeutral: 'CANCEL',
+        },
       });
+      setConditionsMet(result);
     }
     requestPermissions();
   }, []);
@@ -35,11 +37,20 @@ export default function App() {
     justifyContent: 'center',
   };
 
-  const handleOnSuccess = (response: OkCollectSuccessResponse) => {
+  const handleOnSuccess = async (response: OkCollectSuccessResponse) => {
     // perform any logic you'd wish with user and location objects
-    console.log(response.user);
-    console.log(response.location);
-    setLaunch(false);
+    try {
+      console.log(response.user);
+      console.log(response.location);
+      setLaunch(false);
+      if (conditionsMet) {
+        // check if permissions were granted
+        const result = await startVerification(response);
+        console.log('Verification started for: ' + result);
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleOnError = (error: OkHiException) => {
