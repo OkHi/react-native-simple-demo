@@ -994,29 +994,29 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@okhi/react-native-core@^1.0.2", "@okhi/react-native-core@^1.0.4", "@okhi/react-native-core@^1.0.6":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.6.tgz#d447462cf06da5f50d7404ff42d59b1c39b998a8"
-  integrity sha512-I9AtSsfM15dDj62eADHwgLUlkKTJ//mZ5gAuUP7RN0fHTk4kMnVh7Anas6nGNeGsUamzpnIlVo8/rHSsgdkNiA==
+"@okhi/react-native-core@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.8.tgz#1eefc72f549775d08e8fcadfe99fb8dad7258ba7"
+  integrity sha512-GGveNdVuHa/hTwSwBfUgYOYGXRo+7xRSRLvlS9dWx6ka1XpmqS9JT98hItBvMm72V1Whmb4UVseg7Z+J9b6KiA==
   dependencies:
     axios "^0.20.0"
     js-base64 "^3.4.5"
 
-"@okhi/react-native-okcollect@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-okcollect/-/react-native-okcollect-1.0.8.tgz#ff9f03bf0439e90ab6be088641314387f5fe3abf"
-  integrity sha512-r3sDUuZWnJlyivHGmD8URur0/+Nupy3rr3XzLp7oUD9zOIgkpILSsvcgbJu/b4OWog1BsE6Q4Dk3FfSSc+fyYQ==
+"@okhi/react-native-okcollect@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-okcollect/-/react-native-okcollect-1.1.0.tgz#9d9194aeda2ee6ab520ca33e347107a615905477"
+  integrity sha512-Tx2r5OZ9NAXl7vdq9DD8pIH1ruuDIgA4NE3V3hP25T8BEju9ZuZL3R0qPcoeTI2HiYitetyfhY5n/PBCpG2ZnA==
   dependencies:
-    "@okhi/react-native-core" "^1.0.4"
+    "@okhi/react-native-core" "^1.0.8"
     react-native-webview "^10.8.2"
     typedoc "0.17.8"
 
-"@okhi/react-native-okverify@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-okverify/-/react-native-okverify-1.0.4.tgz#3b3ce64c2f3ad9c9d344465ce21810d5e40f2542"
-  integrity sha512-1F1Wu17w0kkfnKNeqGpAdUAH6+KxKKNPEC6oRbE9MmSXcVt7CfeQqyNS8RF3zEmS2q2Akuk0lVj7xP+eCLdx+w==
+"@okhi/react-native-okverify@^1.0.6":
+  version "1.0.6"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-okverify/-/react-native-okverify-1.0.6.tgz#85bd48e7255046fc252a373641d64de33e8dc72a"
+  integrity sha512-V9xkjHy0Huyzt5K5p0NQx9zxqd9nOJ2YMvz2ipSvLfOriXMeV9pgRRD6bqe2hDIKAEpTjx46iwAb8aWKBxdIOQ==
   dependencies:
-    "@okhi/react-native-core" "^1.0.2"
+    "@okhi/react-native-core" "^1.0.8"
 
 "@react-native-community/cli-debugger-ui@^4.9.0":
   version "4.9.0"
