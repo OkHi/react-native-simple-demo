@@ -2,7 +2,7 @@
 
 ## 1. Clone this repository
 
-`$ git clone `
+`$ git clone https://github.com/OkHi/react-native-simple-demo.git`
 
 ## 2. Change direcotry into the cloned project
 
@@ -18,9 +18,9 @@ Create a `secret.json` file at the root directory of the project. With the follo
 
 ```json
 {
-  "branchId": "<my_branch_id>", // OkHi issued branch id
-  "clientKey": "<my_client_key>", // OkHi issued client key
-  "phone": "<my_phone_number>" // Your phone number that you'll use to test with
+  "branchId": "<my_branch_id>",
+  "clientKey": "<my_client_key>",
+  "phone": "<my_phone_number>"
 }
 ```
 
