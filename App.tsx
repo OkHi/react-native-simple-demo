@@ -1,27 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, ViewStyle, Button} from 'react-native';
 import OkHiLocationManager, {
+  canStartAddressCreation,
   OkCollectSuccessResponse,
 } from '@okhi/react-native-okcollect';
-import {
-  OkHiUser,
-  OkHiException,
-  requestLocationPermission,
-  requestEnableLocationServices,
-} from '@okhi/react-native-core';
+import {OkHiUser, OkHiException} from '@okhi/react-native-core';
 import auth from './OkHiAuth';
 import secret from './secret.json';
 
 export default function App() {
   const [launch, setLaunch] = useState(false);
-
-  useEffect(() => {
-    async function requestPermissions() {
-      await requestEnableLocationServices();
-      await requestLocationPermission();
-    }
-    requestPermissions();
-  }, []);
 
   const viewStyles: ViewStyle = {
     flex: 1,
@@ -42,6 +30,11 @@ export default function App() {
     setLaunch(false); // Make sure to change the launch value onError
   };
 
+  const handleOnButtonPress = async () => {
+    const canStart = await canStartAddressCreation({requestServices: true});
+    setLaunch(canStart);
+  };
+
   const user: OkHiUser = {
     firstName: 'Julius',
     lastName: 'Kiano',
@@ -50,7 +43,7 @@ export default function App() {
 
   return (
     <View style={viewStyles}>
-      <Button title="Create Address" onPress={() => setLaunch(true)} />
+      <Button title="Create Address" onPress={handleOnButtonPress} />
       <OkHiLocationManager
         user={user}
         launch={launch}
