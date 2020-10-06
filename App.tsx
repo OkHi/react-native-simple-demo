@@ -17,29 +17,29 @@ export default function App() {
     justifyContent: 'center',
   };
 
+  const user: OkHiUser = {
+    firstName: 'Julius',
+    lastName: 'Kiano',
+    phone: secret.phone, // Make sure its in MSISDN standard format
+  };
+
   const handleOnSuccess = (response: OkCollectSuccessResponse) => {
+    setLaunch(false);
     // perform any logic you'd wish with user and location objects
     console.log(response.user);
     console.log(response.location);
-    setLaunch(false);
   };
 
   const handleOnError = (error: OkHiException) => {
+    setLaunch(false); // Make sure to change the launch value onError
     console.log(error.code);
     console.log(error.message);
-    setLaunch(false); // Make sure to change the launch value onError
   };
 
   const handleOnButtonPress = async () => {
     // Checks whether all necessary permissions and services are available in order to start the address creation process.
     const canStart = await canStartAddressCreation({requestServices: true});
     setLaunch(canStart);
-  };
-
-  const user: OkHiUser = {
-    firstName: 'Julius',
-    lastName: 'Kiano',
-    phone: secret.phone, // Make sure its in MSISDN standard format
   };
 
   return (
