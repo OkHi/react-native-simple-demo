@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {View, ViewStyle, Button} from 'react-native';
 import OkHiLocationManager, {
   OkCollectSuccessResponse,
@@ -13,43 +13,11 @@ import secret from './secret.json';
 
 export default function App() {
   const [launch, setLaunch] = useState(false);
-  const [conditionsMet, setConditionsMet] = useState(false);
-  useEffect(() => {
-    async function requestPermissions() {
-      const result = await canStartVerification({
-        requestServices: true,
-      });
-      setConditionsMet(result);
-    }
-    requestPermissions();
-  }, []);
 
   const viewStyles: ViewStyle = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  };
-
-  const handleOnSuccess = async (response: OkCollectSuccessResponse) => {
-    // perform any logic you'd wish with user and location objects
-    try {
-      console.log(response.user);
-      console.log(response.location);
-      setLaunch(false);
-      if (conditionsMet) {
-        // check if permissions were granted
-        const result = await startVerification(response);
-        console.log('Verification started for: ' + result);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const handleOnError = (error: OkHiException) => {
-    console.log(error.code);
-    console.log(error.message);
-    setLaunch(false); // Make sure to change the launch value onError
   };
 
   const user: OkHiUser = {
@@ -58,9 +26,32 @@ export default function App() {
     phone: secret.phone, // Make sure its in MSISDN standard format
   };
 
+  const handleOnSuccess = async (response: OkCollectSuccessResponse) => {
+    try {
+      setLaunch(false); // Make sure to hide OkHiLocationManager
+      console.log(response.user); // perform any logic you'd wish with user and location objects
+      console.log(response.location);
+      const locationId = await startVerification(response); // start the verification with the response
+      console.log('Successfully started verification for: ' + locationId);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleOnError = (error: OkHiException) => {
+    setLaunch(false); // Make sure to change the launch value onError
+    console.log(error.code);
+    console.log(error.message);
+  };
+
+  const handleOnButtonTap = async () => {
+    const canStart = await canStartVerification({requestServices: true});
+    setLaunch(canStart);
+  };
+
   return (
     <View style={viewStyles}>
-      <Button title="Create Address" onPress={() => setLaunch(true)} />
+      <Button title="Create Address" onPress={handleOnButtonTap} />
       <OkHiLocationManager
         user={user}
         launch={launch}
