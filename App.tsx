@@ -31,6 +31,7 @@ export default function App() {
   };
 
   const handleOnButtonPress = async () => {
+    // Checks whether all necessary permissions and services are available in order to start the address creation process.
     const canStart = await canStartAddressCreation({requestServices: true});
     setLaunch(canStart);
   };
