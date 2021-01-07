@@ -12,7 +12,8 @@ OkVerify.init({
   channelDescription: 'OkHi verification alerts',
   channelName: 'OkHi Verification',
   title: 'Verification in progress',
-  text: 'This will only take a second',
+  text:
+    "We're currently verifying your address, you can ignore this notification",
 });
 
 AppRegistry.registerComponent(appName, () => App);
