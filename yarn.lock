@@ -994,29 +994,29 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@okhi/react-native-core@^1.0.10", "@okhi/react-native-core@^1.0.9":
-  version "1.0.10"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.0.10.tgz#e5a1180f2b0339f8801a70ba782563bd88eee1b9"
-  integrity sha512-vtXoE9QgJJW2nEUBXlZHOkqP2+HDF85MYIPYo90hywxSmwQUbfHj4QwE8UuYtRSddW7G2TRgJRT7zbTcZ0JGLA==
+"@okhi/react-native-core@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-core/-/react-native-core-1.2.0.tgz#1f5b3c7124903b347fc80bff910c797d27d89b53"
+  integrity sha512-HmnQLt7fE2/MKg4UCE6vY/vubPL4sBuurjwj5RszPrBEJ50izPfArFipv0H7vVBHkxBjaf9wsuMlPtJ/ws5sjw==
   dependencies:
     axios "^0.20.0"
     js-base64 "^3.4.5"
 
-"@okhi/react-native-okcollect@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-okcollect/-/react-native-okcollect-1.2.0.tgz#e5c5fe2a51ef17d24fb71375743442666d3b308e"
-  integrity sha512-2g4uFo78mPpqUftfhksiGBgSZ2O+nxWHrURwzyX+jXFtk4L39/yNaoBrIP1UQvsrbk6SRhcOL8cSawaol6s1Zw==
+"@okhi/react-native-okcollect@^1.2.4":
+  version "1.2.4"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-okcollect/-/react-native-okcollect-1.2.4.tgz#8e82a6479b15aa33f522e16723589e5d577dbe01"
+  integrity sha512-Ho7njxKYDZXaAUNR/GUNvNQ7r7tBkrws4uK40OWYbcy3zLasZoHddiOChC1AmY3gA+ERYkvI+N1o4bdYb37XxA==
   dependencies:
-    "@okhi/react-native-core" "^1.0.10"
+    "@okhi/react-native-core" "^1.2.0"
     react-native-webview "^10.8.2"
     typedoc "0.17.8"
 
-"@okhi/react-native-okverify@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/@okhi/react-native-okverify/-/react-native-okverify-1.0.8.tgz#b2ab4c6252171b41cb6333cc13e0f6c45d0040df"
-  integrity sha512-MibOwGBfINsBsopqFEQuq32kTJyIOUQTbbDg38g8RdqvGheTHZj9UT1+W8FMCcg8Ynst2TqfhTS6E6l2xwjFhQ==
+"@okhi/react-native-okverify@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@okhi/react-native-okverify/-/react-native-okverify-1.1.0.tgz#d3f40e85f5cada8372c303cc807c14ff84bf3080"
+  integrity sha512-qL7wfzGd3zEYKqY2Zjdbpk2VLZ2aFEYxi1Yf54wudxs0Pdgm/RyQYAlqvldG0jR0sY7Kkli8a2Oq58qo/M8CRA==
   dependencies:
-    "@okhi/react-native-core" "^1.0.9"
+    "@okhi/react-native-core" "^1.2.0"
 
 "@react-native-community/cli-debugger-ui@^4.9.0":
   version "4.9.0"
