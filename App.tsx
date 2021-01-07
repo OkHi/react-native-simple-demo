@@ -7,6 +7,9 @@ import {OkHiUser, OkHiException} from '@okhi/react-native-core';
 import {
   canStartVerification,
   startVerification,
+  startForegroundService,
+  isForegroundServiceRunning,
+  stopForegroundService,
 } from '@okhi/react-native-okverify';
 import auth from './OkHiAuth';
 import secret from './secret.json';
@@ -33,6 +36,11 @@ export default function App() {
       console.log(response.location);
       const locationId = await startVerification(response); // start the verification with the response
       console.log('Successfully started verification for: ' + locationId);
+      const startedForegroundService = await startForegroundService();
+      console.log(
+        'Foreground service running: ' +
+          ((await isForegroundServiceRunning()) && startedForegroundService),
+      );
     } catch (error) {
       console.log(error);
     }
@@ -49,9 +57,18 @@ export default function App() {
     setLaunch(canStart);
   };
 
+  const handleStopForeground = async () => {
+    const stoppedForeground = await stopForegroundService();
+    console.log('Foreground service stopped: ' + stoppedForeground);
+  };
+
   return (
     <View style={viewStyles}>
       <Button title="Create Address" onPress={handleOnButtonTap} />
+      <Button
+        title="Stop foreground verification"
+        onPress={handleStopForeground}
+      />
       <OkHiLocationManager
         user={user}
         launch={launch}
