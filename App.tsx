@@ -5,8 +5,6 @@ import OkHiLocationManager, {
   OkCollectSuccessResponse,
 } from '@okhi/react-native-okcollect';
 import {OkHiUser, OkHiException} from '@okhi/react-native-core';
-import auth from './OkHiAuth';
-import secret from './secret.json';
 
 export default function App() {
   const [launch, setLaunch] = useState(false);
@@ -20,7 +18,7 @@ export default function App() {
   const user: OkHiUser = {
     firstName: 'Julius',
     lastName: 'Kiano',
-    phone: secret.phone, // Make sure its in MSISDN standard format
+    phone: '+254712345678', // Make sure its in MSISDN standard format
   };
 
   const handleOnSuccess = (response: OkCollectSuccessResponse) => {
@@ -48,7 +46,6 @@ export default function App() {
       <OkHiLocationManager
         user={user}
         launch={launch}
-        auth={auth}
         onSuccess={handleOnSuccess}
         onCloseRequest={() => setLaunch(false)} // called when user taps on the top right close button
         onError={handleOnError}
