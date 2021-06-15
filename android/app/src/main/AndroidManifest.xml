@@ -16,6 +16,8 @@
       <meta-data android:name="io.okhi.core.branch_id" android:value="" />
       <meta-data android:name="io.okhi.core.client_key" android:value="" />
       <meta-data android:name="io.okhi.core.environment" android:value="sandbox" />
+      <meta-data android:name="io.okhi.android_background_geofencing.foreground_notification_icon" android:resource="@drawable/ic_stat_name" />
+      <meta-data android:name="io.okhi.android_background_geofencing.foreground_notification_color" android:resource="@color/notification_icon_color" />
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
