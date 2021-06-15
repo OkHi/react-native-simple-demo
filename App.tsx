@@ -7,12 +7,8 @@ import {OkHiUser, OkHiException} from '@okhi/react-native-core';
 import {
   canStartVerification,
   startVerification,
-  startForegroundService,
-  isForegroundServiceRunning,
   stopForegroundService,
 } from '@okhi/react-native-okverify';
-import auth from './OkHiAuth';
-import secret from './secret.json';
 
 export default function App() {
   const [launch, setLaunch] = useState(false);
@@ -26,7 +22,7 @@ export default function App() {
   const user: OkHiUser = {
     firstName: 'Julius',
     lastName: 'Kiano',
-    phone: secret.phone, // Make sure its in MSISDN standard format
+    phone: '+254712345678', // Make sure its in MSISDN standard format
   };
 
   const handleOnSuccess = async (response: OkCollectSuccessResponse) => {
@@ -36,11 +32,6 @@ export default function App() {
       console.log(response.location);
       const locationId = await startVerification(response); // start the verification with the response
       console.log('Successfully started verification for: ' + locationId);
-      const startedForegroundService = await startForegroundService();
-      console.log(
-        'Foreground service running: ' +
-          ((await isForegroundServiceRunning()) && startedForegroundService),
-      );
     } catch (error) {
       console.log(error);
     }
@@ -72,7 +63,6 @@ export default function App() {
       <OkHiLocationManager
         user={user}
         launch={launch}
-        auth={auth}
         onSuccess={handleOnSuccess}
         onCloseRequest={() => setLaunch(false)} // called when user taps on the top right close button
         onError={handleOnError}
